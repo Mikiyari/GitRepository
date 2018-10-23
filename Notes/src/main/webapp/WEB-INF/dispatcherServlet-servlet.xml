@@ -20,7 +20,7 @@
 	<!-- 配置试图解析器 方便页面返回 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/pages/"></property>
+		<property name="prefix" value="WEB-INF/pages/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	<!-- 两个标准配置 将springmvc不能处理的请求交给tomcat -->
