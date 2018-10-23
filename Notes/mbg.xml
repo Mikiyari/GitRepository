@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressDate" value="false"/>
+			 <property name="suppressAllComments" value="false" />
+		</commentGenerator>
+		<!-- 配置数据库连接信息 -->
+		<jdbcConnection
+			driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/notes" userId="root"
+			password="123">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 指定javabean生成的 位置 -->
+		<javaModelGenerator targetPackage="dxh.notes.bean"
+			targetProject=".\src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- 制定sql语句生成的位置 -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject=".\src\main\resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 指定接口的生成位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="dxh.notes.dao" targetProject=".\src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table tableName="manager" domainObjectName="Manager"></table>
+		<table tableName="user" domainObjectName="User"></table>
+		<table tableName="studynotes" domainObjectName="Studynotes"></table>
+		<table tableName="errornotes" domainObjectName="Errornotes"></table>
+		<table tableName="studyplans" domainObjectName="Studyplans"></table>
+		<table tableName="studyquestions"
+			domainObjectName="Studyquestions"></table>
+		<table tableName="comments" domainObjectName="Comments"></table>
+		<table tableName="like" domainObjectName="Like"></table>
+
+	</context>
+</generatorConfiguration>
