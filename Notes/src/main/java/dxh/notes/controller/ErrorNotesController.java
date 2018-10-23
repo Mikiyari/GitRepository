@@ -1,10 +1,12 @@
 package dxh.notes.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,6 +21,7 @@ public class ErrorNotesController {
 	
 	@RequestMapping("addErrorNote")
 	public String addErrorNote(Errornotes note) {
+		note.setCreatetime(new Date());
 		errornotesService.addNote(note);
 		return "redirect:/findErrorNotes";
 	}
@@ -43,7 +46,9 @@ public class ErrorNotesController {
 	}
 	
 	@RequestMapping("findErrorNotes")
-	public String findErrorNotes() {
+	public String findErrorNotes(Model model) {
+		List<Errornotes> notes = errornotesService.findNotes();
+		model.addAttribute("errornotes", notes);
 		return "notes/errornotes";
 	}
 	

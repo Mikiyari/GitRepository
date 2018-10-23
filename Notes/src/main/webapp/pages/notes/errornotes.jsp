@@ -72,13 +72,13 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">题目</label>
+							<label class="col-sm-2 control-label">原因描述</label>
 							<div class="col-sm-10">
 								<input type="text" id="cause" name="cause" class="form-control">
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">内容</label>
+							<label class="col-sm-2 control-label">内容及过程</label>
 							<div class="col-sm-10">
 								<textarea class="form-control" id="solution" name="solution"
 									rows="3"></textarea>
@@ -127,7 +127,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="errornotes" var="note">
+						<c:forEach items="${errornotes }" var="note">
 						<tr>
 							<td><input type="checkbox" class="check_item"></td>
 							<td>${note.id }</td>
@@ -180,8 +180,8 @@
 			success : function(result) {
 				console.log(result);
 				$("#id").val(result.id);
-				$("#title").val(result.title);
-				$("#content").val(result.content);
+				$("#cause").val(result.cause);
+				$("#solution").val(result.solution);
 				$("#author").val(result.author);
 			}
 		});
