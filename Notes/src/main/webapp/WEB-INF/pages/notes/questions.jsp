@@ -15,7 +15,6 @@
 	rel="stylesheet">
 </head>
 <body>
-	<!-- 这是笔记添加 -->
 	<div class="modal fade" id="addStudyQuestionModal" tabindex="-1">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -59,8 +58,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!--  这是用户编辑 -->
 	<div class="modal fade" id="updateStudyQuestionModal" tabindex="-1">
 		<div class="modal-dialog">
 			<div class="modal-content">
