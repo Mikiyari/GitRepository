@@ -9,7 +9,7 @@ import dxh.notes.service.ManagerService;
 import dxh.notes.service.UserService;
 
 @Controller
-public class SignController {
+public class LogInCOntroller {
 	
 	@Autowired
 	ManagerService managerService;

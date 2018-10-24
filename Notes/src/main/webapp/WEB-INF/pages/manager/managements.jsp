@@ -78,8 +78,8 @@ iframe {
 				<li><a href="${WEBPATH }/findErrorNotes" target="content">错误笔记</a></li>
 				<li><a href="${WEBPATH }/findStudyPlans" target="content">学习计划</a></li>
 			</ul>
-			<a href="questions.jsp" class="list-group-item" target="content">问题管理</a>
-			<a href="comment.jsp" class="list-group-item" target="content">评论管理</a>
+			<a href="${WEBPATH }/findStudyQuestions" class="list-group-item" target="content">问题管理</a>
+			<a href="${WEBPATH }/findComments" class="list-group-item" target="content">评论管理</a>
 		</div>
 	</div>
 
