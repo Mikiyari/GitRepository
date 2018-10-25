@@ -42,4 +42,12 @@ public class UserService {
 		criteria.andIdIn(ids);
 		userMapper.deleteByExample(userExample);
 	}
+
+	public User isHasUser(User user) {
+		UserExample userExample = new UserExample();
+		UserExample.Criteria criteria = userExample.createCriteria();
+		criteria.andUsernameEqualTo(user.getUsername()).andPasswordEqualTo(user.getPassword());
+		List<User> users = userMapper.selectByExample(userExample);
+		return users.get(0);
+	}
 }

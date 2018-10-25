@@ -71,18 +71,18 @@ body {
 			<div id="title">
 				<h1>welcome to your notes</h1>
 			</div>
-			<form class="form-horizontal">
+			<form class="form-horizontal" action="${WEBPATH }/doLogin">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">用户名</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="username"
+						<input type="text" class="form-control" id="username" name="username"
 							placeholder="username">
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-2 control-label">密码</label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" id="password"
+						<input type="password" class="form-control" id="password" name="password"
 							placeholder="password">
 					</div>
 				</div>

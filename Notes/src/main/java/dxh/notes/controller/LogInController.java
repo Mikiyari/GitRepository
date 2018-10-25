@@ -2,14 +2,16 @@ package dxh.notes.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import dxh.notes.bean.Manager;
+import dxh.notes.bean.User;
 import dxh.notes.service.ManagerService;
 import dxh.notes.service.UserService;
 
 @Controller
-public class LogInCOntroller {
+public class LogInController {
 	
 	@Autowired
 	ManagerService managerService;
@@ -26,6 +28,17 @@ public class LogInCOntroller {
 	@RequestMapping("/signin")
 	public String signin() {
 		return "sign/login";
+	}
+	
+	@RequestMapping("doLogin")
+	public String doLogin(User user,Model model) {
+		if(userService.isHasUser(user)!=null) {
+			User u = userService.isHasUser(user);
+			model.addAttribute("user", u);
+		}else {
+			return "errors";
+		}
+		return "user/home";
 	}
 	
 	@RequestMapping("/signup")
