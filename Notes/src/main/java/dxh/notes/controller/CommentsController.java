@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import dxh.notes.bean.Comments;
-import dxh.notes.service.CommentsService;
+import dxh.notes.util.CommonService;
 
 @Controller
 public class CommentsController{
 
 	@Autowired
-	CommentsService commentsService;
+	CommonService<Comments> commentsService;
 	
 	@RequestMapping("addComment")
 	public String addComment(Comments t) {
