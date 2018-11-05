@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +36,6 @@ iframe {
 </style>
 </head>
 <body>
-
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -50,15 +50,15 @@ iframe {
 					<button type="submit" class="btn btn-default">搜索</button>
 				</form>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">欢迎来到Notes后台管理系统</a></li>
+					<li><a href="#">欢迎您,${sessionScope.manager.nickname }</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> Mikiya<span class="caret"></span>
+						data-toggle="dropdown">个人菜单<span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
-							<li><a href="#">我的主页</a></li>
-							<li><a href="#">个人设置</a></li>
+							<li><a href="#">修改密码</a></li>
+							<li><a href="#">个人信息</a></li>
 							<li class="divider"></li>
-							<li><a href="#">注销</a></li>
+							<li><a href="${WEBPATH }/managerLogOut">注销</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -67,7 +67,7 @@ iframe {
 
 	<div class="div-content" id="menulist">
 		<div class="list-group">
-			<a href="${WEBPATH }/home" class="list-group-item" target="content">首页</a>
+			<a href="${WEBPATH }/user/home" class="list-group-item" target="content">首页</a>
 			<a href="${WEBPATH }/findUsers" class="list-group-item"
 				target="content">用户管理</a> <a data-toggle="collapse"
 				href="#notescollapse" class="list-group-item">笔记管理 <span
@@ -84,7 +84,7 @@ iframe {
 	</div>
 
 	<div class="div-content" id="editcontent">
-		<iframe name="content"></iframe>
+		<iframe name="content" src="${WEBPATH }/user/home"></iframe>
 	</div>
 
 </body>

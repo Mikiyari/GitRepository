@@ -15,15 +15,15 @@ public class ManagerService {
 	@Autowired
 	ManagerMapper managerMapper;
 	
-	public boolean ishasManager(String username,String password) {
+	public Manager ishasManager(String username,String password) {
 		ManagerExample managerExample = new ManagerExample();
 		ManagerExample.Criteria criteria = managerExample.createCriteria();
 		criteria.andUsernameEqualTo(username).andPasswordEqualTo(password);
 		List<Manager> managers = managerMapper.selectByExample(managerExample);
 		if(managers!=null) {
-			return true;
+			return managers.get(0);
 		}else {
-			return false;
+			return null;
 		}
 	}
 	

@@ -42,4 +42,12 @@ public class StudyNotesService {
 		criteria.andIdIn(ids);
 		studynotesMapper.deleteByExample(studynotesExample);
 	}
+
+	public List<Studynotes> findNotesByUserId(Integer id) {
+		StudynotesExample example = new StudynotesExample();
+		StudynotesExample.Criteria criteria = example.createCriteria();
+		criteria.andAuthorEqualTo(id);
+		List<Studynotes> notes = studynotesMapper.selectByExample(example);
+		return notes;
+	}
 }

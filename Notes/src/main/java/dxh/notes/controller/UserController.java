@@ -4,13 +4,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import dxh.notes.bean.Studynotes;
 import dxh.notes.bean.User;
+import dxh.notes.service.StudyNotesService;
 import dxh.notes.service.UserService;
 
 @Controller
@@ -18,10 +23,28 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	StudyNotesService	studyNotesService;
+	
+	@RequestMapping("userNotes")
+	public String userNotes(HttpServletRequest request,Model model) {
+		HttpSession session=request.getSession();
+		User u = (User)session.getAttribute("user");
+		List<Studynotes> notes = studyNotesService.findNotesByUserId(u.getId());
+		model.addAttribute("userNotes", notes);
+		return "user/mynotes";
+	}
 
 	/**
 	 * 用户的增删改查
 	 */
+	@RequestMapping("/userHome")
+	public String userHome() {
+		return "redirect:/user/home";
+	}
+	
+	
 	
 	@RequestMapping("/addUser")
 	public String addUser(User user) {
@@ -71,4 +94,6 @@ public class UserController {
 		}
 		return "redirect:/findUsers";
 	}
+	
+	
 }

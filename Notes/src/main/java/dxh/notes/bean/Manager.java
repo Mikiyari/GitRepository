@@ -264,4 +264,12 @@ public class Manager {
     public void setContact(Integer contact) {
         this.contact = contact;
     }
+
+	@Override
+	public String toString() {
+		return "Manager [id=" + id + ", username=" + username + ", password=" + password + ", nickname=" + nickname
+				+ ", realname=" + realname + ", gender=" + gender + ", age=" + age + ", contact=" + contact + "]";
+	}
+    
+    
 }
