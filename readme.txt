@@ -1,4 +1,4 @@
-这是ssm项目练习
+这是Spring+SpringMVC+Mybatis项目
 
 
 
